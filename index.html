@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Agrawal - Senior Database Architect</title>
+    <meta name="description" content="Senior Database Architect with 20+ years experience in data warehousing, cloud technologies, and system integration">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff10" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        section:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2563eb;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            margin-right: 1rem;
+            color: #2563eb;
+            width: 20px;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .skill-category h3 {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #2563eb, #7c3aed);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #2563eb;
+            border: 3px solid white;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: #666;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .timeline-content .date {
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .project-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .project-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .project-content li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+        }
+        
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .certification-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .certification-card i {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .award-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .award-card::before {
+            content: '🏆';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            right: -10px;
+            top: -10px;
+        }
+        
+        .award-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .contact-card i {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero .description {
+                font-size: 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+            
+            .timeline-item::after {
+                left: 22px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 22px;
+            }
+        }
+        
+        /* Easter Egg Styles */
+        .konami-activated {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 10000;
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            40%, 43% {
+                transform: translate(-50%, -50%) translateY(-30px);
+            }
+            70% {
+                transform: translate(-50%, -50%) translateY(-15px);
+            }
+            90% {
+                transform: translate(-50%, -50%) translateY(-4px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Ajay Agrawal</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ajay Agrawal</h1>
+                <div class="subtitle" id="typewriter">Senior Database Architect</div>
+                <div class="description">
+                    A highly accomplished and results-oriented Senior Technical Architect with over 20 years of extensive IT experience, 
+                    specializing in technical project management, large-scale data solutions, and complex system integrations.
+                </div>
+                <a href="#contact" class="cta-button">Let's Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-pic">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rahatani, Pune, Maharashtra, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9373439691</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>ajayagrawalgwl@rediffmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>As a seasoned Database Architect with over two decades of experience in the IT industry, I specialize in designing and implementing robust data solutions that drive business success. My expertise spans across traditional and modern data technologies, from Oracle and SQL Server to cutting-edge cloud platforms like Snowflake and Azure.</p>
+                    
+                    <p>Throughout my career, I've led numerous large-scale data warehouse implementations, migration projects, and system integrations for Fortune 500 companies across various industries including banking, finance, and telecommunications. My deep understanding of data architecture principles, combined with hands-on experience in emerging technologies, allows me to bridge the gap between traditional enterprise systems and modern cloud-native solutions.</p>
+                    
+                    <p>I'm passionate about leveraging data to create meaningful business insights and am constantly exploring innovative approaches to data management, including AI-powered tools for enhanced productivity and modern architectures like the Medallion Architecture on Snowflake.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database Architecture & Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Relational Design</span>
+                        <span class="skill-tag">Dimensional (STAR)</span>
+                        <span class="skill-tag">Cloud Data Warehousing</span>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">OLTP Optimization</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">SnowPipe</span>
+                        <span class="skill-tag">SnowPark</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-exchange-alt"></i> Data Integration & ETL</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ETL Architecture</span>
+                        <span class="skill-tag">Data Migration</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">SSIS</span>
+                        <span class="skill-tag">DBT</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Database Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Sybase</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PL/SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R Scripting</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                        <span class="skill-tag">Perl</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Business Intelligence</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">SSAS</span>
+                        <span class="skill-tag">IcCube</span>
+                        <span class="skill-tag">MDX</span>
+                        <span class="skill-tag">BI Platforms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">July 2025 - Present</span>
+                        <h3>Data Architect Consultant</h3>
+                        <h4>Teksoft Labs Pvt. Ltd.</h4>
+                        <p>Leading the design and implementation of client data lake projects, focusing on building modern, robust data architecture that centralizes data and provides a foundation for advanced analytics.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Feb 2023 - Mar 2025</span>
+                        <h3>Senior Technical Architect</h3>
+                        <h4>Odessa</h4>
+                        <p>Provided technical leadership for complex Data Warehouse projects, managed disaster recovery solutions, and led a successful Proof of Concept for migrating C#/.NET and SQL Server data warehouse to Snowflake using Medallion Architecture.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">May 2007 - Feb 2023</span>
+                        <h3>Data Architect</h3>
+                        <h4>FIS, Pune, India</h4>
+                        <p>Led multiple high-impact projects including China Bank PH ETL Modernization, OATS Development on Big Data Platform, and Data Visualization Modernization. Managed data migration solutions for Wells Fargo with 8+ billion records.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Jan 2005 - May 2007</span>
+                        <h3>Production Database Administrator</h3>
+                        <h4>Tata Consultancy Services, Mumbai</h4>
+                        <p>Managed SQL Server Data-warehouse with 24/7 database availability, backup & restore operations, capacity planning, and database environment management for Development, Testing & UAT.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Sep 2004 - Dec 2004</span>
+                        <h3>Database Consultant</h3>
+                        <h4>Clover Technology Limited, Mumbai</h4>
+                        <p>Provided 24x7 support for Telecom billing databases, ensuring database availability, performance tuning, and comprehensive database monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Dec 2003 - Aug 2004</span>
+                        <h3>Database Administrator</h3>
+                        <h4>Hathway Cable & Datacom Ltd</h4>
+                        <p>Managed ISP billing databases, performed database & SQL tuning, reviewed indexes, developed backup & restore strategies, and handled database migrations.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Aug 2000 - Dec 2003</span>
+                        <h3>Database Consultant</h3>
+                        <h4>Interface Communication</h4>
+                        <p>Created and managed SQL Server databases, performed database tuning, managed indexes and space optimization, and handled SQL Server software installation and configuration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>China Bank PH ETL Modernization on Cloud</h3>
+                        <p>Large-scale cloud data pipeline implementation</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Established a robust and efficient data pipeline for over 150 large source files within a cloud environment.</p>
+                        <ul>
+                            <li>Led technical teams in ETL development and cloud integration</li>
+                            <li>Created optimized relational data models for target platforms</li>
+                            <li>Ensured on-time delivery with performance optimization</li>
+                            <li>Resolved complex technical issues and risks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Moody's SEDF Data Processing Solution</h3>
+                        <p>R-scripted analytical solution for financial data</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and developed an R-based solution for processing large volumes of Moody's SEDF data.</p>
+                        <ul>
+                            <li>Architected robust R-based solution for large-scale processing</li>
+                            <li>Developed and optimized R scripts for complex calculations</li>
+                            <li>Implemented comprehensive error handling and data quality measures</li>
+                            <li>Created technical documentation and knowledge transfer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>OATS Development on Big Data Platform</h3>
+                        <p>Scalable Order Audit Trail System for regulatory compliance</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and developed a scalable Order Audit Trail System (OATS) on Big Data platform for regulatory compliance.</p>
+                        <ul>
+                            <li>Architected OATS technical solution ensuring scalability</li>
+                            <li>Gathered regulatory requirements and created optimized data models</li>
+                            <li>Ensured strict adherence to OATS regulatory standards (FINRA)</li>
+                            <li>Performed performance tuning and monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Data Visualization Modernization</h3>
+                        <p>SSAS to IcCube Migration with MongoDB integration</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Modernized data visualization infrastructure by migrating critical Multidimensional ALM Cube from SSAS to IcCube.</p>
+                        <ul>
+                            <li>Led migration strategy and technical direction</li>
+                            <li>Managed end-to-end ALM Cube migration ensuring data integrity</li>
+                            <li>Spearheaded MongoDB adoption into modernized architecture</li>
+                            <li>Implemented optimization strategies for new environment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Wells Fargo Data Migration</h3>
+                        <p>Large-scale data migration solution for 8+ billion records</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Developed comprehensive data migration solution managing technical complexities of migrating massive datasets.</p>
+                        <ul>
+                            <li>Managed migration of 8+ billion records in SQL Server</li>
+                            <li>Defined data strategy and comprehensive data models</li>
+                            <li>Developed conceptual, logical, and physical data models</li>
+                            <li>Ensured data integrity throughout migration process</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Snowflake Migration PoC</h3>
+                        <p>Modern cloud data warehouse implementation</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Led Proof of Concept for migrating large C#/.NET and SQL Server data warehouse to Snowflake cloud platform.</p>
+                        <ul>
+                            <li>Architected Snowflake implementation using Medallion Architecture</li>
+                            <li>Leveraged Snowpipe for data ingestion automation</li>
+                            <li>Utilized Snowpark for advanced data processing</li>
+                            <li>Achieved substantial performance improvements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>M001 MongoDB Basics</h3>
+                    <p>2018</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>M201 MongoDB Performance</h3>
+                    <p>2018</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Sybase Performance Tuning</h3>
+                    <p>2008</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>BMC Control-D Distribution System Administrator</h3>
+                    <p>2006</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>FCTOP - Financial Certification</h3>
+                    <p>Silver Brook - 2008</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Oracle Certified Associate</h3>
+                    <p>2003</p>
+                </div>
+                
+                <div class="certification-card">
+                    <i class="fas fa-terminal"></i>
+                    <h3>CMC C & Unix Certificate</h3>
+                    <p>2000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3>FIS Laureate Award</h3>
+                    <p>Focus Business Analytics</p>
+                    <span>2019</span>
+                </div>
+                
+                <div class="award-card">
+                    <h3>FIS Kudos Award</h3>
+                    <p>Collaboration Excellence</p>
+                    <span>2018</span>
+                </div>
+                
+                <div class="award-card">
+                    <h3>SunGard Supernova Award</h3>
+                    <p>Capital Market Excellence</p>
+                    <span>2012</span>
+                </div>
+                
+                <div class="award-card">
+                    <h3>Expert Lecture</h3>
+                    <p>Big Data and MongoDB at Engineering College, Jhalawar Rajasthan</p>
+                    <span>2021</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:ajayagrawalgwl@rediffmail.com">ajayagrawalgwl@rediffmail.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+919373439691">+91 9373439691</a>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>B6, Essentia, Rahatani<br>Pune, Maharashtra, India</p>
+                </div>
+                
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="#" target="_blank">Connect with me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ajay Agrawal. All rights reserved. | Senior Database Architect with 20+ years of expertise</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Particles Animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Typewriter Effect
+        function typeWriter() {
+            const text = "Senior Database Architect & Data Solutions Expert";
+            const element = document.getElementById('typewriter');
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            element.textContent = '';
+            type();
+        }
+
+        // Scroll Animations
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Konami Code Easter Egg
+        let konamiCode = [];
+        const konamiSequence = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'KeyB', 'KeyA'
+        ];
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                showKonamiMessage();
+                konamiCode = [];
+            }
+        });
+
+        function showKonamiMessage() {
+            const message = document.createElement('div');
+            message.className = 'konami-activated';
+            message.innerHTML = `
+                <h2>🎉 Konami Code Activated! 🎉</h2>
+                <p>You've discovered the secret! 20+ years of experience has taught me that sometimes the old-school tricks are the best ones!</p>
+                <button onclick="this.parentNode.remove()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+            `;
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                if (message.parentNode) {
+                    message.remove();
+                }
+            }, 5000);
+        }
+
+        // Skill Tag Click Effect
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    tag.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            setTimeout(typeWriter, 1000);
+            observeElements();
+        });
+
+        // Performance optimization: Debounce scroll events
+        let ticking = false;
+        function updateOnScroll() {
+            // Navbar scroll effect and scroll-to-top button are already handled above
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
